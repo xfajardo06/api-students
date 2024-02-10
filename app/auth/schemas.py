@@ -1,5 +1,5 @@
-from pydantic import BaseModel
-from pydantic import BaseModel, EmailStr, constr, SecretStr
+from pydantic import BaseModel, EmailStr, constr
+from typing import Optional
 
 
 
@@ -11,3 +11,4 @@ class UserRegisterSchema(BaseModel):
     email: EmailStr
     name: constr(min_length=1, max_length=50)
     password: str
+    phone: Optional[str] = ""

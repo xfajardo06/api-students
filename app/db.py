@@ -4,8 +4,6 @@ db = MongoEngine()
 
 def initialize_db(app):
     app.config['MONGODB_SETTINGS'] = {
-        'db': 'calificaciones',
-        'host': 'localhost',
-        'port': 27017
+        'host': 'mongodb+srv://xfajardoc:UshFAaDdMta85slO@cluster0.fciqppv.mongodb.net/'
     }
     db.init_app(app)
