@@ -1,0 +1,7 @@
+code,name,semester,credits,prerequisites
+MAT1,Matemáticas 1,1,3,
+FIS1,Física 1,1,3,
+INF1,Informática 1,1,3,MAT1
+MAT2,Matemáticas 2,2,3,MAT1
+FIS2,Física 2,2,3,FIS1
+INF2,Informática 2,2,3,INF1

@@ -11,10 +11,10 @@ Este proyecto es una aplicación web desarrollada en Python con Flask y Flask-Re
 
 ### Configuración del entorno virtual
 1. Clona el repositorio desde GitHub:
-git clone https://github.com/tu_usuario/tu_proyecto.git
+git clone https://github.com/xfajardo06/api-students.git
 
 2. Navega al directorio del proyecto:
-cd tu_proyecto
+cd api-students
 
 3. Crea un entorno virtual:
 python3.8 -m venv venv
@@ -35,10 +35,12 @@ pip install -r requirements.txt
 
 
 ## Uso
-1. Configura las variables de entorno necesarias, como la configuración de la base de datos y las claves secretas.
-2. Ejecuta la aplicación:
-3. Accede a la API desde tu navegador o herramienta de desarrollo de API.
+1. Configura las variables de entorno necesarias, como la configuración de la base de datos y las claves secretas (Ya se encuentran en el proyecto).
+2. Comando para ejecutar la aplicación: python wsgi.py
+3. Ir al admin: '/admin/subject' para visualizar los datos de la base de datos cargados. Confirmar que se haya cargado los datos de Las Materías Base (Subjects)
+4. Accede a la API desde tu navegador o herramienta de desarrollo de API (Postman).
 
 ## Documentación de la API
-Puedes encontrar la documentación de la API en la ruta `/api-docs`, donde se describe cada endpoint disponible y los parámetros necesarios.
+Documentación donde se describe el procedimiento de prueba y tipos de respuestas. 
+También puedes encontrar la documentación de la API en la ruta `/`, donde se describe cada endpoint disponible y los parámetros necesarios.
 
