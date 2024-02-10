@@ -25,3 +25,10 @@ def invalid_token_callback(error):
             response=resp.UNAUTHORIZED_401,
             error ="Token inválido"
         )
+
+@jwt.unauthorized_loader
+def unauthorized_callback(error):
+    return response_with(
+            response=resp.UNAUTHORIZED_401,
+            error ="No ha proporcionado un token"
+    )
