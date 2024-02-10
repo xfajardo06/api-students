@@ -42,5 +42,5 @@ pip install -r requirements.txt
 
 ## Documentación de la API
 Documentación donde se describe el procedimiento de prueba y tipos de respuestas. 
-También puedes encontrar la documentación de la API en la ruta `/`, donde se describe cada endpoint disponible y los parámetros necesarios.
+También puedes encontrar la documentación de la API en la ruta '/', donde se describe cada endpoint disponible y los parámetros necesarios.
 

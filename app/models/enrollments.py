@@ -51,6 +51,7 @@ class EnrolledSubject(Document):
 
     def to_dict(self):
         return {
+            'subject_enrroled_id': str(self.id),
             'code': self.subject.code,
             'name': self.subject.name,
             'score': self.score,

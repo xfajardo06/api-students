@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_mongoengine import Document
 from mongoengine.fields import (
     StringField, ReferenceField,
-    BooleanField, DateTimeField)
+    BooleanField, DateTimeField, IntField)
 
 # Models
 from app.models.users import User
@@ -19,6 +19,7 @@ class Student(Document):
     )
     user = ReferenceField(User, required=True, unique=True, reverse_delete_rule=mongoengine.CASCADE)
     name = StringField(required=True)
+    credits = IntField(required=True)
     semester = StringField(choices=SEMESTER_CHOICES, required=True)
     active = BooleanField(default=True)
     created_at = DateTimeField(default=datetime.utcnow)

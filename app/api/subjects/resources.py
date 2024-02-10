@@ -12,7 +12,7 @@ from app.utils.responses import response_with
 import app.utils.responses as resp
 api = Namespace('subjects', 'API para registrar nota de estudiantes')
 
-@api.route("/finish/<string:enrolled_subject_id>")
+@api.route("/<string:enrolled_subject_id>/finish")
 @api.doc(params={'enrolled_subject_id': 'ID of the enrolled subject'})
 class FinishSubject(Resource):
     @jwt_required()

@@ -19,7 +19,7 @@ api = Namespace(
     description="API para obtener información de estudiantes y gestionar sus materias",
 )
 
-@api.route("/create")
+@api.route("/inscription")
 class CreateStudent(Resource):
     @jwt_required()
     def post(self):
@@ -50,11 +50,12 @@ class CreateStudent(Resource):
             student = Student(
                 user=user,
                 name=create_request.name,
-                semester=create_request.semester
+                semester=create_request.semester,
+                credits=create_request.credits
             )
             student.save()
 
-            return make_response(resp.SUCCESS_200)
+            return make_response(resp.SUCCESS_200, data={'student_id': str(student.id)})
         except Exception as err:
             return response_with(
                 response=resp.BAD_REQUEST_400,
@@ -62,8 +63,8 @@ class CreateStudent(Resource):
             )
 
 
-@api.route("/inscription/<string:student_id>")
-class Inscription(Resource):
+@api.route("/<string:student_id>/enrolled_subject/")
+class RegisterSubject(Resource):
     @jwt_required()
     def post(self, student_id):
         """
