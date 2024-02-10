@@ -63,7 +63,7 @@ class CreateStudent(Resource):
             )
 
 
-@api.route("/<string:student_id>/enrolled_subject/")
+@api.route("/<string:student_id>/enrolled_subject")
 class RegisterSubject(Resource):
     @jwt_required()
     def post(self, student_id):
