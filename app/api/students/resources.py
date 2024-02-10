@@ -16,7 +16,7 @@ from app.utils.responses import response_with
 
 api = Namespace(
     'students',
-    description="API para obtener información de estudiantes y gestionarsus materias",
+    description="API para obtener información de estudiantes y gestionar sus materias",
 )
 
 @api.route("/create")

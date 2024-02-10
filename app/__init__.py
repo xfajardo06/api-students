@@ -8,7 +8,6 @@ def create_app():
     app = Flask(__name__)
 
     from app.api import api_bp
-    from app.auth.routes import auth_bp
 
     # Configuración de la base de datos MongoDB
     with app.app_context():
@@ -18,7 +17,6 @@ def create_app():
 
     load_subjects_from_csv()
     app.register_blueprint(api_bp)
-    app.register_blueprint(auth_bp)
 
     return app
 

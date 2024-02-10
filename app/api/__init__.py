@@ -4,6 +4,7 @@ from flask_restx import Api
 # Importar las rutas y registrarlas
 from .subjects import api as api_subjects
 from .students import api as api_students
+from .auth import api as api_auth
 
 api_bp = Blueprint('api', __name__)
 
@@ -11,8 +12,9 @@ api_bp = Blueprint('api', __name__)
 api = Api(
     app=api_bp, prefix='/api/v1', version='1.0',
     title='API Gestion de Calificaciones de Universidad Nacional',
-    description='')
-
+    description=''
+)
 # Registrar las rutas en el Blueprint
-api.add_namespace(api_subjects)
+api.add_namespace(api_auth)
 api.add_namespace(api_students)
+api.add_namespace(api_subjects)

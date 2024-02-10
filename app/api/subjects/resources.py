@@ -10,7 +10,7 @@ from app.models.enrollments import EnrolledSubject
 # Utils
 from app.utils.responses import response_with
 import app.utils.responses as resp
-api = Namespace('subjects', 'Subjects')
+api = Namespace('subjects', 'API para registrar nota de estudiantes')
 
 @api.route("/finish/<string:enrolled_subject_id>")
 @api.doc(params={'enrolled_subject_id': 'ID of the enrolled subject'})
