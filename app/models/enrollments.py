@@ -24,7 +24,7 @@ class EnrolledSubject(Document):
     )
 
     subject = ReferenceField(Subject, required=True, reverse_delete_rule=mongoengine.CASCADE)
-    student = ReferenceField(Student, required=True)
+    student = ReferenceField(Student, required=True, reverse_delete_rule=mongoengine.CASCADE)
     score = FloatField(min_value=0, max_value=5, default=0)
     status = StringField(choices=STATUS_CHOICES, default='started')
     created_at = DateTimeField(default=datetime.utcnow)

@@ -35,7 +35,6 @@ class CreateStudent(Resource):
             try:
                 create_request = SchemaStudentCreated(**data)
             except ValidationError as e:
-                # Si los datos no son válidos, retorna un mensaje de error con detalles de validación
                 return response_with(
                     response=resp.BAD_REQUEST_SCHEMA,
                     error = e.errors()
@@ -67,6 +66,9 @@ class CreateStudent(Resource):
 class Inscription(Resource):
     @jwt_required()
     def post(self, student_id):
+        """
+        Endpoint para inscribir a un estudiante en una materia.
+        """
         student = Student.objects(id=student_id).first()
 
         if not student:
@@ -159,7 +161,6 @@ class Approveds(Resource):
         """
         Endpoint para que un estudiante obtenga la lista de materias aprobadas.
         """
-        current_user_id = get_jwt_identity()
         student = Student.objects(id=student_id).first()
         if student:
             subjects_passed = EnrolledSubject.get_passed_subjects(student)
@@ -183,7 +184,6 @@ class Average(Resource):
         """
         Endpoint para que un estudiante obtenga el promedio de puntaje general.
         """
-        current_user_id = get_jwt_identity()
         student = Student.objects(id=student_id).first()
         if student:
             subjects = EnrolledSubject.objects(student=student, status__ne='started')
