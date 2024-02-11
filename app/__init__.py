@@ -16,6 +16,7 @@ def create_app():
     app.config.from_pyfile('config.py', silent=True)
 
     from app.api import api_bp
+    from app.views.routes import web_bp
 
     with app.app_context():
         # Configuración de la base de datos MongoDB
@@ -26,6 +27,7 @@ def create_app():
         initialize_jwt(app)
 
     load_subjects_from_csv()
+    app.register_blueprint(web_bp)
     app.register_blueprint(api_bp)
 
     return app

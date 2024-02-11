@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Inicio Sesión</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                </form>
+                <p class="text-center mt-3">¿Aún no te has registrado? <a href="#" id="registerLink">Registrarse</a></p>
+                <div class="alert alert-success d-none overflow-text" role="alert" id="alertToken">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registrationForm = document.getElementById('loginForm');
+            const dynamicAlert = document.getElementById("alertToken");
+
+            registrationForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+
+                const userData = {
+                    email: email,
+                    password: password,
+                };
+
+                fetch('api/v1/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                .then(response => response.json())
+                .then(resp => {
+                    // Comprueba si la respuesta contiene un token
+                    if (resp.data.access_token) {
+                        dynamicAlert.classList.remove("d-none"); // Muestra el elemento
+                        dynamicAlert.innerText = `Token recibido: ${resp.data.access_token}`
+                        setTimeout(() => {
+                            window.location.href = "/doc"; // Redirige al enlace especificado
+                        }, 5000)
+                    } else {
+                        alert('Error al iniciar sesión');
+                    }
+                })
+                .catch(error => {
+                    alert('Error en el registro:', error.message);
+                });
+            });
+
+            document.getElementById("registerLink").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+            window.location.href = "register"; // Redirige a la página de registro
+
+        });
+    });
+    </script>
+    <style>
+        .d-none {
+            display: none;
+        }
+        .overflow-text {
+            margin: 0 auto;
+            padding: 5px;
+            word-break: break-all;
+        }
+    </style>
+</body>
+</html>

@@ -12,7 +12,8 @@ api_bp = Blueprint('api', __name__)
 api = Api(
     app=api_bp, prefix='/api/v1', version='1.0',
     title='API Gestion de Calificaciones de Universidad Nacional',
-    description=''
+    description='',
+    doc="/doc"
 )
 # Registrar las rutas en el Blueprint
 api.add_namespace(api_auth)
