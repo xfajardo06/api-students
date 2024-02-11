@@ -46,7 +46,6 @@ class CreateStudent(Resource):
                     response=resp.BAD_REQUEST_400,
                     error="El estudiante ya existe"
                 )
-
             student = Student(
                 user=user,
                 name=create_request.name,
@@ -55,7 +54,7 @@ class CreateStudent(Resource):
             )
             student.save()
 
-            return make_response(resp.SUCCESS_200, data={'student_id': str(student.id)})
+            return response_with(resp.SUCCESS_200, data={'student_id': str(student.id)})
         except Exception as err:
             return response_with(
                 response=resp.BAD_REQUEST_400,
