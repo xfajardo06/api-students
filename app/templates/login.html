@@ -25,8 +25,8 @@
                     <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
                 </form>
                 <p class="text-center mt-3">¿Aún no te has registrado? <a href="#" id="registerLink">Registrarse</a></p>
-                <div class="alert alert-success d-none overflow-text" role="alert" id="alertToken">
-                </div>
+                <div class="alert alert-success d-none overflow-text" role="alert" id="alertToken"></div>
+                <div class="alert alert-danger d-none overflow-text" role="alert" id="alertError"></div>
             </div>
         </div>
 
@@ -36,9 +36,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             const registrationForm = document.getElementById('loginForm');
             const dynamicAlert = document.getElementById("alertToken");
+            const dynamicError = document.getElementById("alertError");
 
             registrationForm.addEventListener('submit', function(event) {
                 event.preventDefault();
+                dynamicError.classList.add("d-none")
 
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
@@ -59,18 +61,20 @@
                 .then(response => response.json())
                 .then(resp => {
                     // Comprueba si la respuesta contiene un token
-                    if (resp.data.access_token) {
+                    if (resp.status == 200) {
                         dynamicAlert.classList.remove("d-none"); // Muestra el elemento
                         dynamicAlert.innerText = `Token recibido: ${resp.data.access_token}`
                         setTimeout(() => {
                             window.location.href = "/doc"; // Redirige al enlace especificado
-                        }, 5000)
+                        }, 4000)
                     } else {
-                        alert('Error al iniciar sesión');
+                        dynamicError.classList.remove("d-none")
+                        dynamicError.innerText = `Error: ${resp.errors}`
                     }
                 })
                 .catch(error => {
-                    alert('Error en el registro:', error.message);
+                    dynamicError.classList.remove("d-none")
+                    dynamicError.innerText = `Error: ${error}`
                 });
             });
 
