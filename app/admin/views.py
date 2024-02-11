@@ -17,24 +17,24 @@ admin = Admin(index_view=MyAdminIndexView())
 
 # Crear una vista para el modelo Student
 class StudentView(ModelView):
-    can_create = True
-    can_edit = True
-    can_delete = True
+    can_create = False
+    can_edit = False
+    can_delete = False
 
 class SubjectView(ModelView):
-    can_create = True
-    can_edit = True
-    can_delete = True
+    can_create = False
+    can_edit = False
+    can_delete = False
 
 class EnrroledSubjectView(ModelView):
-    can_create = True
-    can_edit = True
-    can_delete = True
+    can_create = False
+    can_edit = False
+    can_delete = False
 
 class UserView(ModelView):
-    can_create = True
-    can_edit = True
-    can_delete = True
+    can_create = False
+    can_edit = False
+    can_delete = False
 
 # Agregar vista del modelo
 admin.add_view(StudentView(Student))

@@ -36,7 +36,9 @@ pip install -r requirements.txt
 
 ## Uso
 1. Configura las variables de entorno necesarias, como la configuración de la base de datos y las claves secretas (Ya se encuentran en el proyecto).
-2. Comando para ejecutar la aplicación: python wsgi.py
+export MONGODB_URI="MONGODB_URI"
+
+2. Comando para ejecutar la aplicación: python main.py
 3. Ir al admin: '/admin/subject' para visualizar los datos de la base de datos cargados. Confirmar que se haya cargado los datos de Las Materías Base (Subjects)
 4. Accede a la API desde tu navegador o herramienta de desarrollo de API (Postman).
 
