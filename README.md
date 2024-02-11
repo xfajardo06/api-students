@@ -41,6 +41,5 @@ pip install -r requirements.txt
 4. Accede a la API desde tu navegador o herramienta de desarrollo de API (Postman).
 
 ## Documentación de la API
-Documentación donde se describe el procedimiento de prueba y tipos de respuestas. 
-También puedes encontrar la documentación de la API en la ruta '/', donde se describe cada endpoint disponible y los parámetros necesarios.
+Documentación donde se describe cada endpoint disponible y los parametros necesarios https://documenter.getpostman.com/view/18745239/2sA2r3YR3E#intro
 

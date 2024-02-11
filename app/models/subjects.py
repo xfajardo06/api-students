@@ -28,3 +28,7 @@ class Subject(Document):
         for prerequisite in self.prerequisites:
             prerequisites_dict[prerequisite.code] = prerequisite.name
         return prerequisites_dict
+
+    meta = {
+        'indexes': ['code']
+    }

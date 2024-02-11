@@ -49,6 +49,10 @@ class EnrolledSubject(Document):
         else:
             return 'failed'
 
+    meta = {
+        'indexes': ['student', 'subject']
+    }
+
     def to_dict(self):
         return {
             'subject_enrroled_id': str(self.id),

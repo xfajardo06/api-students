@@ -24,3 +24,7 @@ class Student(Document):
     active = BooleanField(default=True)
     created_at = DateTimeField(default=datetime.utcnow)
 
+    meta = {
+        'indexes': ['user']
+    }
+
