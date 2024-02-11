@@ -15,14 +15,14 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MONGODB_SETTINGS = get_mongo_from_uri(os.getenv("DEV_MONGODB_URI"))
+    MONGODB_SETTINGS = get_mongo_from_uri(os.getenv("MONGODB_URI"))
     SECRET_KEY = os.environ.get('DEV_SECRET_KEY')
     JWT_SECRET_KEY = "DSFSDGSGDEV"
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)  # Tiempo de expiración del token
 
 
 class ProductionConfig(Config):
-    MONGO_URI = get_mongo_from_uri(os.environ.get('PROD_MONGODB_URI'))
+    MONGO_URI = get_mongo_from_uri(os.environ.get('MONGODB_URI'))
     SECRET_KEY = os.environ.get('PROD_SECRET_KEY')
     JWT_SECRET_KEY = "DSFSDGSGPROD"
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)  # Tiempo de expiración del token
