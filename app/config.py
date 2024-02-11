@@ -1,5 +1,9 @@
 import os
+from dotenv import load_dotenv
 from datetime import timedelta
+
+load_dotenv()
+
 
 def get_mongo_from_uri(uri):
     conn_settings = {"host": uri, 'connect': False}
