@@ -35,8 +35,12 @@ pip install -r requirements.txt
 
 
 ## Uso
-1. Configura las variables de entorno necesarias, como la configuración de la base de datos y las claves secretas (Ya se encuentran en el proyecto).
-export MONGODB_URI="MONGODB_URI"
+1. Configura las variables de entorno necesarias, como la configuración de la base de datos y las claves secretas.
+
+export ENV='development'
+export DEV_MONGODB_URI='mongodb://localhost:27017/calificaciones'
+export APP_SETTINGS="app.config.DevelopmentConfig"
+export DEV_SECRET_KEY="ASDFGHJKL"
 
 2. Comando para ejecutar la aplicación: python main.py
 3. Ir al admin: '/admin/subject' para visualizar los datos de la base de datos cargados. Confirmar que se haya cargado los datos de Las Materías Base (Subjects)
