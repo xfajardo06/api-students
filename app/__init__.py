@@ -14,7 +14,7 @@ def create_app():
     app_settings = os.environ.get('APP_SETTINGS', 'app.config.DevelopmentConfig')
     app.config.from_object(app_settings)
     app.config.from_pyfile('config.py', silent=True)
-    print(app.config)
+
     from app.api import api_bp
 
     with app.app_context():
